@@ -1,0 +1,19 @@
+.hex-to-rgb_app{
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+.hex-to-rgb_app input {
+    box-sizing: border-box;
+    padding: 7px 15px;
+}
+.output{
+    box-sizing: border-box;
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 5px 25px;
+}

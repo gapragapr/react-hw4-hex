@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './main.css'
 
 export default function Main(){
-    let [color, setColor] = useState('');
+    let [color, setColor] = useState('#ffffff');
     let [value, setValue] = useState('');
     let [err, setError] = useState('')
 
@@ -24,12 +24,16 @@ export default function Main(){
     function handleChange(event){
         setValue(value = event.target.value)
         
-        if (hexToRgb(value) !== 'Ошибка'){
-            setColor(color = hexToRgb(value))
-            setError(err = '')
-        } else {
-            setError(err = 'Ошибка')
+        if (value.length === 7){
+            if (hexToRgb(value) !== 'Ошибка'){
+                setColor(color = hexToRgb(value))
+                setError(err = '')
+            } else {
+                setError(err = 'Ошибка')
+            }
         }
+
+        console.log(value.length)
         
     }
 
@@ -37,10 +41,10 @@ export default function Main(){
     return(
         <div className="hex-to-rgb_app" style={{backgroundColor: color}}>
             <form action="">
-                <input type="text" onChange={handleChange}/>
+                <input placeholder='Введите hex' type="text" onChange={handleChange}/>
             </form>
             <div className="output">
-                <p>{err === '' ? color : err}</p>
+                <p className={err === '' ? 'output-paragraph' : 'output-paragraph_err'}>{err === '' ? color : err}</p>
             </div>
         </div>
     )
